@@ -10,6 +10,17 @@ import numpy as np
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+def predicted_original_from_noise(latent, noise_pred, timestep, alphas_cumprod):
+    alpha = alphas_cumprod[timestep]
+    beta = 1 - alpha 
+    predicted_original_sample = (latent - beta.sqrt() * noise_pred) / alpha.sqrt()
+    return predicted_original_sample
+    
+def noise_from_predicted_original(latent, predicted_original, timestep, alphas_cumprod):
+    alpha = alphas_cumprod[timestep]
+    beta = 1 - alpha
+    noise = (latent - alpha.sqrt() * predicted_original) / beta.sqrt()
+    return noise
 
 class StableDiffusionGenerator:
     """
