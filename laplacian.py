@@ -1,14 +1,13 @@
-
 from typing import Tuple, List
-
-import torch
 import einops
+import torch
 import torch.nn.functional as F
 
 class LaplacianPyramidTorch:
-    def __init__(self, levels: int = 4):
+    def __init__(self, levels: int = 4, dtype=torch.float32):
         self.levels = levels
         self.pyramid = []
+        self.dtype = dtype
 
     def gaussian_kernel(self, size: int = 5, sigma: float = 1.0) -> torch.Tensor:
         if size % 2 == 0:
@@ -21,7 +20,7 @@ class LaplacianPyramidTorch:
     def downsample(self, image: torch.Tensor) -> torch.Tensor:
         B, C, H, W = image.shape
         device = image.device
-        kernel = self.gaussian_kernel(5, 1.0).to(device)
+        kernel = self.gaussian_kernel(5, 1.0).to(device).to(self.dtype)
         # apply depth-wise convolution
         kernel = einops.repeat(kernel, "h w -> c 1 h w", c=C)
         blurred = F.conv2d(image, kernel, stride=1, groups=C, padding=2)
