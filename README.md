@@ -4,30 +4,31 @@ Unofficial Implementation of "Guidance in the Frequency Domain Enables High-Fide
 
 ## Visual Comparison
 
-Below are comparison images generated using the same prompt with different methods and guidance scales:
+Below are side-by-side comparisons of CFG vs FDG at different guidance scales:
 
 ### Low Guidance Scale (4)
 
-| Method | Result |
-|--------|--------|
-| **CFG** | ![CFG Scale 4](content/CFG_4.png) |
-| **FDG** | ![FDG Scale 4](content/FDG_4.png) |
+| CFG (Scale 4) | FDG (Scale 4) |
+|---------------|---------------|
+| ![CFG Scale 4](content/CFG_4.png) | ![FDG Scale 4](content/FDG_4.png) |
 
 ### Medium Guidance Scale (8)
 
-| Method | Result |
-|--------|--------|
-| **CFG** | ![CFG Scale 8](content/CFG_8.png) |
-| **FDG** | ![FDG Scale 8](content/FDG_8.png) |
-
+| CFG (Scale 8) | FDG (Scale 8) |
+|---------------|---------------|
+| ![CFG Scale 8](content/CFG_8.png) | ![FDG Scale 8](content/FDG_8.png) |
 
 ### High Guidance Scale (15)
 
-| Method | Result |
-|--------|--------|
-| **CFG** | ![CFG Scale 15](content/CFG_15.png) |
-| **FDG** | ![FDG Scale 15](content/FDG_15.png) |
+| CFG (Scale 15) | FDG (Scale 15) |
+|----------------|----------------|
+| ![CFG Scale 15](content/CFG_15.png) | ![FDG Scale 15](content/FDG_15.png) |
 
+The prompts used:
+- "A majestic dragon flying over a castle, fantasy art"
+- "A serene lake with cherry blossoms, anime style"
+- "A futuristic cityscape at night, cyberpunk"
+- "A cozy cottage in a magical forest, fairytale style"
 ## Installation
 
 ```bash
