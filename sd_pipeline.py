@@ -451,7 +451,7 @@ class StableDiffusionGenerator:
                     diff = d_c - d_u
                     diff_par, diff_ort = project(diff, d_c)
                     diff = diff_par + diff_ort
-                    p_guided = d_c + scale * diff
+                    p_guided = d_c + (scale - 1) * diff
                     pyramid_list.append(p_guided)
 
                 predicted_x0 = self.pyramid.reconstruct_from_laplacian(pyramid_list)
